@@ -10,6 +10,7 @@ public class CheckerModel implements ICheckerModel {
 	private int redPieces = 12;
 	private int grayPieces = 12;
 	
+	//add stuff
 	public CheckerModel() {
 		
 		//create the board
