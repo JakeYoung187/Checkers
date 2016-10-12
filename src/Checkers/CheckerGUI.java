@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
-public class CheckerGUI {
+public class CheckerGUI { 
 	
 	public static void main(String[] args) {
 		
