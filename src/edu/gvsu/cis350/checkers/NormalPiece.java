@@ -3,6 +3,7 @@ package edu.gvsu.cis350.checkers;
 public class NormalPiece extends GamePiece {
 	
 	public Player owner;
+	private static final int JUMP = 3;
 	
 	protected NormalPiece(final Player player) {
 		this.owner = player;
@@ -53,7 +54,7 @@ public class NormalPiece extends GamePiece {
 						return true;
 					}
 					
-				} else if (Math.abs(move.toRow - move.fromRow) == 3){
+				} else if (Math.abs(move.toRow - move.fromRow) == JUMP) {
 					//taking pieces
 					return true;
 				}
@@ -68,12 +69,13 @@ public class NormalPiece extends GamePiece {
 					if (Math.abs(move.toColumn - move.fromColumn) == 1) {
 						return true;
 						
-					} else if (Math.abs(move.toColumn - move.fromColumn) == 3) {
+					} else if (Math.abs(
+							move.toColumn - move.fromColumn) == JUMP) {
 						//taking a piece
 						return true;
 					}
 					
-				} else if (Math.abs(move.toRow - move.fromRow) == 3) {
+				} else if (Math.abs(move.toRow - move.fromRow) == JUMP) {
 					//taking a piece
 					return true;
 				}

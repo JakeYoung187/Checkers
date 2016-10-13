@@ -13,7 +13,7 @@ public class CheckerGUI {
 	 * Main for creating checker GUI.
 	 * @param args command arguments
 	 ***************************************/
-	private static void main(final String[] args) {
+	public static void main(String[] args) {
 		
 		JFrame frame = new JFrame("Checkers");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
