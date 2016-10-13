@@ -1,4 +1,4 @@
-package Checkers;
+package edu.gvsu.cis350.checkers;
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;

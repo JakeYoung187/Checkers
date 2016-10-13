@@ -1,4 +1,4 @@
-package Checkers;
+package edu.gvsu.cis350.checkers;
 
 import javax.swing.JOptionPane;
 

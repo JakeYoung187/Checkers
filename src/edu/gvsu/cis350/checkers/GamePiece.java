@@ -1,4 +1,4 @@
-package Checkers;
+package edu.gvsu.cis350.checkers;
 
 public abstract class GamePiece implements IGamePiece{
 
