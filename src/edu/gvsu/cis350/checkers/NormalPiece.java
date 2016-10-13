@@ -19,49 +19,61 @@ public class NormalPiece extends GamePiece {
 	}
 	
 	@Override
-	public boolean isValidMove(Move move, IGamePiece[][] board) {
+	public final boolean isValidMove(
+			             final Move move, final IGamePiece[][] board) {
+		
 		//top left is 0-0, and GRAY
-		if(board[move.fromRow][move.fromColumn].player() == Player.GRAY) {
-			if(!(move.fromRow == move.toRow) && !(move.fromColumn == move.toColumn)) {
-				if(move.toRow - move.fromRow == 1) {
-					if(Math.abs(move.toColumn - move.fromColumn) == 1) {
+		if (board[move.fromRow][move.fromColumn].player() == Player.GRAY) {
+			if (!(move.fromRow == move.toRow) 
+					   && !(move.fromColumn == move.toColumn)) {
+				
+				if (move.toRow - move.fromRow == 1) {
+					if (Math.abs(move.toColumn - move.fromColumn) == 1) {
 						//normal move
 						return true;
 					}
 					//checks for jump?
-					//seperate the to locaions to prevent moving to the wrong one.
+					//separate the to locations 
+					//to prevent moving to the wrong one.
 					//try for loop in notepad
-					if(move.toRow == move.fromRow + 2 && (move.toColumn == move.fromColumn +- 2)) {
-						if(board[move.fromRow + 1][move.fromColumn + 1] != null || 
-								board[move.fromRow + 1][move.fromColumn - 1] != null) {
-							if(board[move.fromRow+1][move.fromColumn+-1].player() != player()) {
+					
+					if (move.toRow == move.fromRow + 2 
+							&& (move.toColumn == move.fromColumn + (-2))) {
+						
+						if (board[move.fromRow + 1][move.fromColumn + 1] 
+								!= null || board[move.fromRow + 1]
+										   [move.fromColumn - 1] != null) {
+							
+							if (board[move.fromRow + 1][move.fromColumn
+							              + (-1)].player() != player()) {
 								return true;
 							}
 						}
-						
-						
 						//taking a piece
 						return true;
 					}
-				}
-				else if(Math.abs(move.toRow - move.fromRow) == 3){
+					
+				} else if (Math.abs(move.toRow - move.fromRow) == 3){
 					//taking pieces
 					return true;
 				}
 			}
-		}
-		else if(board[move.fromRow][move.fromColumn].player() == Player.RED) {
-			if(!(move.toRow == move.fromRow) && !(move.toColumn == move.fromColumn)) {
-				if(move.fromRow - move.toRow == 1) {
-					if(Math.abs(move.toColumn - move.fromColumn) == 1) {
+		} else if (board[move.fromRow]
+						[move.fromColumn].player() == Player.RED) {
+			
+				if (!(move.toRow == move.fromRow) 
+					&& !(move.toColumn == move.fromColumn)) {
+				
+				if (move.fromRow - move.toRow == 1) {
+					if (Math.abs(move.toColumn - move.fromColumn) == 1) {
 						return true;
-					}
-					else if(Math.abs(move.toColumn - move.fromColumn) == 3) {
+						
+					} else if (Math.abs(move.toColumn - move.fromColumn) == 3) {
 						//taking a piece
 						return true;
 					}
-				}
-				else if(Math.abs(move.toRow - move.fromRow) == 3) {
+					
+				} else if (Math.abs(move.toRow - move.fromRow) == 3) {
 					//taking a piece
 					return true;
 				}

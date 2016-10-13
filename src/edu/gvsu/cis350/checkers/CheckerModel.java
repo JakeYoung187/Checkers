@@ -2,19 +2,37 @@ package edu.gvsu.cis350.checkers;
 
 import javax.swing.JOptionPane;
 
+/**********************************************************************
+ * CheckerModel class implements ICheckerModel interface for game play.
+ **********************************************************************/
 public class CheckerModel implements ICheckerModel {
 
+	/** board. */
 	private IGamePiece[][] board;
-	public IGamePiece currentPiece;
-	private Player player;
-	private int redPieces = 12;
-	private int grayPieces = 12;
 	
-	//add stuff
+	/** current piece. */
+	public IGamePiece currentPiece;
+	
+	/** player value. */
+	private Player player;
+	
+	/** board size. */
+	private static final int BOARDSIZE = 8;
+	
+	/** total number of red pieces. */
+	private static final int REDTOTAL = 12;
+	
+	/** total number of gray pieces. */
+	private static final int GRAYTOTAL = 12;
+	
+	
+	/************************************************ 
+	 * Constructor adds red and gray pieces to board.
+	 ************************************************/
 	public CheckerModel() {
 		
 		//create the board
-		board = new IGamePiece[8][8];
+		board = new IGamePiece[BOARDSIZE][BOARDSIZE];
 		
 		//sets who goes first
 		player = Player.RED;
@@ -54,68 +72,93 @@ public class CheckerModel implements ICheckerModel {
 	}
 	
 	@Override
-	public boolean isComplete() {
+	public final boolean isComplete() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean isValidMove(Move move) {
-		if(pieceAt(move.fromRow, move.fromColumn).isValidMove(move, board)) {
+	/***********************************************
+	 * isValidMove checks if provided move is valid.
+	 * @param move current move
+	 * @return true if valid, false if not
+	 ***********************************************/
+	public final boolean isValidMove(final Move move) {
+		if (pieceAt(move.fromRow, move.fromColumn).isValidMove(move, board)) {
 			return true;
-		}
-		else {
+			
+		} else {
 			return false;
 		}
 	}
 
 	public void move(Move move) {
-		if(pieceAt(move.fromRow, move.fromColumn) != null) {
+		if (pieceAt(move.fromRow, move.fromColumn) != null) {
 			//if(pieceAt(move.fromRow, move.fromColumn).isValidMove(move, board)) {
-			if(isValidMove(move)) {
+			if (isValidMove(move)) {
 				System.out.println("2");
-				if(pieceAt(move.toRow, move.toColumn) == null) {
+				
+				if (pieceAt(move.toRow, move.toColumn) == null) {
 					board[move.toRow][move.toColumn] = board[move.fromRow][move.fromColumn];
 					board[move.fromRow][move.fromColumn] = null;
 					player = player.next();
 					System.out.println(player);
 				}
 			//}
-			}
-			else {
-				JOptionPane.showMessageDialog(null, "That is not a valid move. Please try another.");
+			} else {
+				JOptionPane.showMessageDialog(null, 
+						"That is not a valid move. Please try another.");
 				return;
 			}
-				//save array of pieces to save board, timer, load, save, speed mode, board change size,
-				//maybe main menu, mayeb profiles
+				//save array of pieces to save board, 
+				//timer, load, save, speed mode, board change size,
+				//maybe main menu, maybe profiles
 		}
 //		player = player.next();
 		System.out.println(player);
 	}
 
 	@Override
-	public boolean gameOver(Player winner) {
+	public final boolean gameOver(final Player winner) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Player getCurrentPlayer() {
+	public final Player getCurrentPlayer() {
 		return player;
 	}
 	
-	public void setCurrentPlayer(Player p) {
+	/*************************************
+	 * setCurrentPlayer sets player value.
+	 * @param p player
+	 *************************************/
+	public final void setCurrentPlayer(final Player p) {
 		this.player = p;
 	}
 	
-	public IGamePiece pieceAt(int row, int column) {
+	/**********************************************
+	 * pieceAt returns the piece at given position.
+	 * @param row given row
+	 * @param column given column
+	 * @return piece value
+	 **********************************************/
+	public final IGamePiece pieceAt(final int row, final int column) {
 		return board[row][column];
 	}
 	
-	public IGamePiece getCurrentPiece() {
+	/********************************************
+	 * getCurrentPiece returns the current piece.
+	 * @return piece value
+	 ********************************************/
+	public final IGamePiece getCurrentPiece() {
 		return currentPiece;
 	}
 	
-	public void setCurrentPiece(IGamePiece p) {
+	/****************************************************
+	 * setCurrentPiece sets given piece as current piece.
+	 * @param p new current piece
+	 ****************************************************/
+	public final void setCurrentPiece(final IGamePiece p) {
 		this.currentPiece = p;
 	}
 	

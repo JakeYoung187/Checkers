@@ -273,25 +273,25 @@ public class CheckerPanel extends JPanel {
 		}
 
 		@Override
-		public void mouseEntered(MouseEvent a) {
+		public void mouseEntered(final MouseEvent a) {
 			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
-		public void mouseExited(MouseEvent a) {
+		public void mouseExited(final MouseEvent a) {
 			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
-		public void mousePressed(MouseEvent a) {
+		public void mousePressed(final MouseEvent a) {
 			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
-		public void mouseReleased(MouseEvent a) {
+		public void mouseReleased(final MouseEvent a) {
 			// TODO Auto-generated method stub
 			
 		}
