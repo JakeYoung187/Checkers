@@ -91,6 +91,10 @@ public class CheckerModel implements ICheckerModel {
 		}
 	}
 
+	/**************************************
+	 * Handles the piece movement on board.
+	 * @param move new piece position 
+	 **************************************/
 	public final void move(final Move move) {
 		if (pieceAt(move.fromRow, move.fromColumn) != null) {
 			//if(pieceAt(move.fromRow, move.fromColumn).isValidMove(

@@ -1,15 +1,28 @@
 package edu.gvsu.cis350.checkers;
 
+/*********************************************************************
+ * NormalPiece extends GamePiece class for normal piece functionality.
+ *********************************************************************/
 public class NormalPiece extends GamePiece {
 	
+	/** owner of piece. */
 	public Player owner;
+	
+	/** value of jumping a piece. */
 	private static final int JUMP = 3;
 	
+	/*******************************
+	 * Sets owner of normal piece.
+	 * @param player owner of piece
+	 *******************************/
 	protected NormalPiece(final Player player) {
 		this.owner = player;
-		//sets player to piece
 	}
 
+	/***************************
+	 * Returns owner of piece.
+	 * @return owner the player
+	 ***************************/
 	public Player player() {
 		return owner;
 	}

@@ -8,6 +8,11 @@ public abstract class GamePiece implements IGamePiece {
 	/** owner of piece. */
 	private Player owner;
 	
+	/*********************************************
+	 * Set the owner of the piece as given player.
+	 * @param player owner of piece.
+	 *********************************************/
+	//TODO: Not sure how to fix this checkstyle issue (logic issue)
 	public final void GamePiece(final Player player) {
 		this.owner = player;
 	}

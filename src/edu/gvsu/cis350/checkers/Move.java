@@ -9,6 +9,10 @@ public class Move {
 	/** start and end position of piece. */
 	public static int fromRow, fromColumn, toRow, toColumn;
 	
+	/********************
+	 * Empty constructor.
+	 * TODO: Do we need this?
+	 ********************/
 	public Move() {
 		
 	}
