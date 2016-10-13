@@ -4,9 +4,16 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
+/*******************************************
+ * Creates Checker GUI for user game play.
+ *******************************************/
 public class CheckerGUI { 
 	
-	public static void main(String[] args) {
+	/***************************************
+	 * Main for creating checker GUI.
+	 * @param args command arguments
+	 ***************************************/
+	private static void main(final String[] args) {
 		
 		JFrame frame = new JFrame("Checkers");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

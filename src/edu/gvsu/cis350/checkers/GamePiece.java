@@ -1,10 +1,14 @@
 package edu.gvsu.cis350.checkers;
 
-public abstract class GamePiece implements IGamePiece{
+/**********************************************************************
+ * GamePiece implements the GamePiece interface to create board pieces.
+ **********************************************************************/
+public abstract class GamePiece implements IGamePiece {
 
+	/** owner of piece. */
 	private Player owner;
 	
-	public void GamePiece(Player player) {
+	public final void GamePiece(final Player player) {
 		this.owner = player;
 	}
 	

@@ -4,7 +4,7 @@ public class NormalPiece extends GamePiece {
 	
 	public Player owner;
 	
-	protected NormalPiece(Player player) {
+	protected NormalPiece(final Player player) {
 		this.owner = player;
 		//sets player to piece
 	}
@@ -14,7 +14,7 @@ public class NormalPiece extends GamePiece {
 	}
 	
 	@Override
-	public String type() {
+	public final String type() {
 		return "Pawn";
 	}
 	
@@ -81,12 +81,7 @@ public class NormalPiece extends GamePiece {
 		}
 		
 		return false;
-		
-		
-		
-		
-		
-		
+			
 		
 		//set true cases, else false
 //		if(board[move.fromRow][move.fromColumn].player() == Player.GRAY) {

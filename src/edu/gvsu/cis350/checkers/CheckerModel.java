@@ -91,14 +91,18 @@ public class CheckerModel implements ICheckerModel {
 		}
 	}
 
-	public void move(Move move) {
+	public final void move(final Move move) {
 		if (pieceAt(move.fromRow, move.fromColumn) != null) {
-			//if(pieceAt(move.fromRow, move.fromColumn).isValidMove(move, board)) {
+			//if(pieceAt(move.fromRow, move.fromColumn).isValidMove(
+			//											move, board)) {
 			if (isValidMove(move)) {
 				System.out.println("2");
 				
 				if (pieceAt(move.toRow, move.toColumn) == null) {
-					board[move.toRow][move.toColumn] = board[move.fromRow][move.fromColumn];
+					
+					board[move.toRow][move.toColumn] 
+							= board[move.fromRow][move.fromColumn];
+					
 					board[move.fromRow][move.fromColumn] = null;
 					player = player.next();
 					System.out.println(player);
