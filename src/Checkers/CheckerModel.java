@@ -8,7 +8,7 @@ public class CheckerModel implements ICheckerModel {
 	private IGamePiece[][] board;
 	public IGamePiece currentPiece;
 	private Player player;
-	private int redPieces = 12;
+	private int redPieces = 12; 
 	private int grayPieces = 12;
 	
 	public CheckerModel() {

@@ -291,7 +291,7 @@ public class CheckerPanel extends JPanel {
 								System.out.println(r + " " + c); 
 								currentMove.toRow = r;
 								currentMove.toColumn = c;
-			 					model.move(currentMove);
+			 					model.move(currentMove); 
 								model.currentPiece = null;
 								displayBoard();
 								//System.out.println(model.pieceAt(currentMove.toRow, currentMove.toColumn).type());
