@@ -26,6 +26,15 @@ public interface ICheckerModel {
 	 ************************************/
 	boolean gameOver(Player winner);
 	
+	
+	/***************************************
+	 * Return the piece at a given location.
+	 * @param row given row
+	 * @param column given column
+	 * @return piece at location
+	 ***************************************/
+	IGamePiece pieceAt(final int row, final int column);
+	
 	/***********************************************************
 	 * getCurrentPlayer returns the value of the current player.
 	 * @return player value

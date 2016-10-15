@@ -108,6 +108,7 @@ public class CheckerModel implements ICheckerModel {
 							= board[move.fromRow][move.fromColumn];
 					
 					board[move.fromRow][move.fromColumn] = null;
+					
 					player = player.next();
 					System.out.println(player);
 				}
