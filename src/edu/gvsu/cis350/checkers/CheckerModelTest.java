@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /************************************************************
- * JUnit testing for the Chess Model Class.
+ * JUnit testing for the CheckerModel Class.
  * @author Nate Benson, Jake Young, Kaye Suarez
  * @version 1.0
  ************************************************************/

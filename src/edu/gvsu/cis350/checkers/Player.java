@@ -12,7 +12,6 @@ public enum Player {
 	 * Return next player. 
 	 * @return color 
 	 *********************/
-	//TODO: Get rid of inline conditional
 	public Player next() {
 		return this == GRAY ? RED : GRAY;
 	}
