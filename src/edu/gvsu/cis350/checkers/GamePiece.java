@@ -1,8 +1,11 @@
 package edu.gvsu.cis350.checkers;
 
-/**********************************************************************
+/***********************************************************************
  * GamePiece implements the IGamePiece interface to create board pieces.
- **********************************************************************/
+ * 
+ * @author Nate Benson, Kaye Suarez, Jake Young
+ * @version 1.0 
+ ***********************************************************************/
 public abstract class GamePiece implements IGamePiece {
 
 	/** owner of piece. */

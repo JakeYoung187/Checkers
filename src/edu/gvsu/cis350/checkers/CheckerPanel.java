@@ -17,6 +17,9 @@ import javax.swing.JButton;
 
 /**************************************************************
  * CheckerPanel class to create and set up board for game play.
+ * 
+ * @author Nate Benson, Kaye Suarez, Jake Young
+ * @version 1.0 
  **************************************************************/
 
 public class CheckerPanel extends JPanel {

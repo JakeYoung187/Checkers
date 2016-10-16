@@ -1,8 +1,11 @@
 package edu.gvsu.cis350.checkers;
 
-/***************************************
+/***********************************************
  * IGamePiece interface for game pieces.
- ***************************************/
+ * 
+ * @author Nate Benson, Kaye Suarez, Jake Young
+ * @version 1.0 
+ ***********************************************/
 public interface IGamePiece {
 	
 	/****************************************** 

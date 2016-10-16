@@ -4,6 +4,9 @@ import javax.swing.JOptionPane;
 
 /**********************************************************************
  * CheckerModel class implements ICheckerModel interface for game play.
+ * 
+ * @author Nate Benson, Kaye Suarez, Jake Young
+ * @version 1.0 
  **********************************************************************/
 public class CheckerModel implements ICheckerModel {
 

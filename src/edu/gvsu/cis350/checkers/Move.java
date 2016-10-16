@@ -3,6 +3,9 @@ package edu.gvsu.cis350.checkers;
 
 /********************************************************************
  * Move constructs the movement of pieces from starting point to end.
+ * 
+ * @author Nate Benson, Kaye Suarez, Jake Young
+ * @version 1.0 
  ********************************************************************/
 public class Move {
 	

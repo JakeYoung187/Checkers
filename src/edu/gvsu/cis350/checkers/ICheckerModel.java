@@ -2,6 +2,9 @@ package edu.gvsu.cis350.checkers;
 
 /******************************************************************************
  * ICheckerModel interface for game play: moving, winning and rotating players.
+ * 
+ * @author Nate Benson, Kaye Suarez, Jake Young
+ * @version 1.0 
  ******************************************************************************/
 public interface ICheckerModel {
 	

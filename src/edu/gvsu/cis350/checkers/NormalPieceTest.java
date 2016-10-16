@@ -7,6 +7,7 @@ import org.junit.Test;
 
 /************************************************************
  * JUnit testing for the NormalPiece Class.
+ * 
  * @author Nate Benson, Jake Young, Kaye Suarez
  * @version 1.0
  ************************************************************/

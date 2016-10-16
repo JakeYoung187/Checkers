@@ -6,8 +6,9 @@ import org.junit.Test;
 
 /************************************************************
  * JUnit testing for the CheckerModel Class.
- * @author Nate Benson, Jake Young, Kaye Suarez
- * @version 1.0
+ * 
+ * @author Nate Benson, Kaye Suarez, Jake Young
+ * @version 1.0 
  ************************************************************/
 
 public class CheckerModelTest {

@@ -4,9 +4,12 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 
-/*******************************************
+/************************************************
  * Creates Checker GUI for user game play.
- *******************************************/
+ * 
+ * @author Nate Benson, Kaye Suarez, Jake Young
+ * @version 1.0 
+ ************************************************/
 public class CheckerGUI { 
 	
 	/***************************************

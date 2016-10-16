@@ -2,6 +2,9 @@ package edu.gvsu.cis350.checkers;
 
 /*********************************************************************
  * NormalPiece extends GamePiece class for normal piece functionality.
+ * 
+ * @author Nate Benson, Kaye Suarez, Jake Young
+ * @version 1.0 
  *********************************************************************/
 public class NormalPiece extends GamePiece {
 
@@ -23,7 +26,7 @@ public class NormalPiece extends GamePiece {
 	 * Returns owner of piece.
 	 * @return owner the player
 	 ***************************/
-	public Player player() {
+	public final Player player() {
 		return owner;
 	}
 

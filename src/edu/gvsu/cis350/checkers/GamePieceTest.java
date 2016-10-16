@@ -13,21 +13,38 @@ import org.junit.Test;
  ************************************************************/
 public abstract class GamePieceTest {
 
+	/** Fixed Board size. */ 
 	private static final int BOARD_SIZE = 8;
 
-	/* These three variables are accessible from your child test classes */
+	/** Array of GamePieces. */ 
 	protected IGamePiece[][] board;
+	
+	/** Single GamePiece. */
 	protected IGamePiece piece;
 
+	/***********************************
+	 * Setup empty array of game pieces.
+	 ***********************************/
 	@Before
-	public void makeBoard() {
+	public final void makeBoard() {
 		// Don't put any pieces on the board.
 		board = new IGamePiece[BOARD_SIZE][BOARD_SIZE];
 		piece = make(Player.RED);
 	}
 
+	/*********************
+	 * Set owner of piece.
+	 * @param p player
+	 * @return IGamePiece 
+	 *********************/
 	protected abstract IGamePiece make(Player p);
 
+	/*********************
+	 * Set owner of piece.
+	 * @param fromRow 
+	 * @param fromCol 
+	 * @return move 
+	 *********************/
 	protected abstract Move getValidMove(int fromRow, int fromCol);
 
 	/************************************************
