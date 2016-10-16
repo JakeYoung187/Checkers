@@ -172,6 +172,31 @@ public class NormalPieceTest extends GamePieceTest {
 		assertFalse(piece.isValidMove(new Move(5, 3, 5, 4), board));
 	}
 	
+	/************************************************
+	 * Checks when jumping piece, only jumps 1 space.
+	 * @throws Exception 
+	 ************************************************/
+	@Test
+	public final void tooManySpacesRed() throws Exception {
+		board[5][3] = piece;
+		IGamePiece piece2 = make(Player.GRAY);
+		board[4][4] = piece2;
+
+		assertFalse(piece.isValidMove(new Move(5, 3, 2, 6), board));
+	}
+	
+	/************************************************
+	 * Checks when jumping piece, only jumps 1 space.
+	 * @throws Exception 
+	 ************************************************/
+	@Test
+	public final void tooManySpacesGray() throws Exception {
+		board[3][5] = piece;
+		IGamePiece piece2 = make(Player.GRAY);
+		board[2][6] = piece2;
+
+		assertFalse(piece.isValidMove(new Move(2, 6, 5, 3), board));
+	}
 	
 	/********************************
 	 * Checks invalid jump over null.

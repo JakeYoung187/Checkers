@@ -8,6 +8,12 @@ package edu.gvsu.cis350.checkers;
  ***********************************************/
 public interface IGamePiece {
 	
+	/**************************
+	 * Set player of piece.
+	 * @param p owner of piece 
+	 **************************/
+	void setPlayer(Player p);
+	
 	/****************************************** 
 	 * Returns the player that owns this piece.
 	 * @return player of piece 

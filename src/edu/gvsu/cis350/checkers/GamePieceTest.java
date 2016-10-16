@@ -21,6 +21,9 @@ public abstract class GamePieceTest {
 	
 	/** Single GamePiece. */
 	protected IGamePiece piece;
+	
+	/** Second GamePiece. */
+	protected IGamePiece piece2;
 
 	/***********************************
 	 * Setup empty array of game pieces.
@@ -46,6 +49,28 @@ public abstract class GamePieceTest {
 	 * @return move 
 	 *********************/
 	protected abstract Move getValidMove(int fromRow, int fromCol);
+	
+	/******************************************
+	 * Creates piece and checks owner of piece.
+	 * @throws Throwable 
+	 ******************************************/
+	@Test
+	public final void redPiece() throws Throwable {
+		piece.setPlayer(Player.RED);
+		
+		assertEquals("RED", piece.player().name());
+	}
+	
+	/******************************************
+	 * Creates piece and checks owner of piece.
+	 * @throws Throwable 
+	 ******************************************/
+	@Test
+	public final void grayPiece() throws Throwable {
+		piece.setPlayer(Player.GRAY);
+		
+		assertEquals("RED", piece.player().name());
+	}
 
 	/************************************************
 	 * Checks if location is occupied by same player.
