@@ -111,20 +111,4 @@ public class CheckerModelTest {
 		assertTrue(!p.equals(model.getCurrentPlayer()));
 
 	}
-	
-	/******************************************
-	 * Checks player moves piece on wrong turn.
-	 * @throws Exception  
-	 ******************************************/
-	@Test
-	public final void wrongTurn() throws Exception {
-
-		Player p = model.getCurrentPlayer();
-		model.move(new Move(5, 3, 4, 2));
-
-		assertTrue(!p.equals(model.getCurrentPlayer()));
-
-	}
-	
-	
 }
