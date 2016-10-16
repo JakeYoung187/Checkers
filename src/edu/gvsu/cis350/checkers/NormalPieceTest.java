@@ -138,6 +138,18 @@ public class NormalPieceTest extends GamePieceTest {
 	}
 	
 	
+	
+/*
+	@Test
+	public final void jumpSamePlayer() throws Exception {
+		board[5][3] = piece;
+		IGamePiece piece2 = make(Player.RED);
+		board[4][2] = piece2;
+
+		assertFalse(piece.isValidMove(new Move(5, 3, 3, 1), board));
+	}
+*/	
+	
 	/*******************************************
 	 * Checks if invalid to move piece vertical.
 	 * @throws Exception 
