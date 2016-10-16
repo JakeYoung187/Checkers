@@ -14,6 +14,9 @@ public class CheckerModelTest {
 	
 	/** Test Checker Model. */
 	protected ICheckerModel model;
+
+	/** Red Piece Total. */
+	
 	
 	/****************************
 	 * Create Test Checker model.
@@ -28,11 +31,10 @@ public class CheckerModelTest {
 	 * @throws Exception 
 	 ****************************************************/
 	@Test
-	public final void isNotCompleteTest() throws Exception {
-		//TODO: FINISH GAME OVER METHOD
-		
+	public final void noGameOver() throws Exception {
+		model.move(new Move(5, 3, 4, 2));
+	
 		assertFalse("Testing notIsComplete", model.gameOver());
-
 	}
 	
 	

@@ -216,5 +216,4 @@ public class CheckerModel implements ICheckerModel {
 	public final void setCurrentPiece(final IGamePiece p) {
 		this.currentPiece = p;
 	}
-
 }
