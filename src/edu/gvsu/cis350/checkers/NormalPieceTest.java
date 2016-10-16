@@ -61,6 +61,45 @@ public class NormalPieceTest extends GamePieceTest {
 		assertTrue(piece.isValidMove(new Move(5, 1, 4, 0), board));
 	}
 	
+	/*****************************************
+	 * Checks if piece can move jump diagonal left.
+	 * @throws Exception 
+	 *****************************************/
+	@Test
+	public final void jumpDiagRight() throws Exception {
+		board[5][3] = piece;
+		IGamePiece piece2 = new NormalPiece(Player.GRAY);
+		board[4][4] = piece2;
+	
+		assertTrue(piece.isValidMove(new Move(5, 3, 3, 5), board));
+		//assertTrue(board[4][4] == null);
+	}
+	
+	
+	
+	
+	/**********************************************
+	 * Checks invalid back right diagonal movement.
+	 * @throws Exception 
+	 **********************************************/
+	@Test
+	public final void noDiagRightBack() throws Exception {
+		board[4][4] = piece;
+ 
+		assertFalse(piece.isValidMove(new Move(4, 4, 6, 4), board));
+	}
+	
+	/**********************************************
+	 * Checks invalid back right diagonal movement.
+	 * @throws Exception 
+	 **********************************************/
+	@Test
+	public final void noDiagLeftBack() throws Exception {
+		board[4][4] = piece;
+ 
+		assertFalse(piece.isValidMove(new Move(4, 4, 5, 4), board));
+	}
+	
 	
 	/*******************************************
 	 * Checks if invalid to move piece vertical.
@@ -91,10 +130,21 @@ public class NormalPieceTest extends GamePieceTest {
 	 ***********************************/
 	@Test
 	public final void cantMoveSideways() throws Exception {
-
 		board[5][3] = piece;
 
 		assertFalse(piece.isValidMove(new Move(5, 3, 5, 4), board));
+	}
+	
+	
+	/********************************
+	 * Checks invalid jump over null.
+	 * @throws Exception 
+	 ********************************/
+	@Test
+	public final void cantJumpNull() throws Exception {
+		board[5][3] = piece;
+
+		assertFalse(piece.isValidMove(new Move(5, 3, 3, 5), board));
 	}
 	
 

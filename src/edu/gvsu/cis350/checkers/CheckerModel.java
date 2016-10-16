@@ -25,6 +25,9 @@ public class CheckerModel implements ICheckerModel {
 	/** total number of gray pieces. */
 	private static final int GRAYTOTAL = 12;
 	
+	/** jump size. */
+	private static final int JUMP = 2;
+	
 	
 	/************************************************ 
 	 * Constructor adds red and gray pieces to board.
@@ -96,18 +99,43 @@ public class CheckerModel implements ICheckerModel {
 	 * @param move new piece position 
 	 **************************************/
 	public final void move(final Move move) {
+		
 		if (pieceAt(move.fromRow, move.fromColumn) != null) {
 			//if(pieceAt(move.fromRow, move.fromColumn).isValidMove(
 			//											move, board)) {
 			if (isValidMove(move)) {
-				System.out.println("2");
+				System.out.println("Valid");
 				
 				if (pieceAt(move.toRow, move.toColumn) == null) {
 					
+					//Move piece to new location
 					board[move.toRow][move.toColumn] 
 							= board[move.fromRow][move.fromColumn];
 					
 					board[move.fromRow][move.fromColumn] = null;
+					
+					//DOWN DIAGONAL JUMP
+					if (move.fromRow + JUMP == move.toRow) {
+						//RIGHT
+						if (move.toColumn > move.fromColumn) {
+							board[move.fromRow + 1][move.fromColumn + 1] = null;
+						
+						//LEFT
+						} else if (move.toColumn < move.fromColumn) {
+							board[move.fromRow + 1][move.fromColumn - 1] = null;
+						}
+						
+					//UP DIAGONAL JUMP
+					} else if (move.fromRow - JUMP == move.toRow) {
+						//RIGHT
+						if (move.toColumn > move.fromColumn) {
+							board[move.fromRow - 1][move.fromColumn + 1] = null;
+						
+						//LEFT
+						} else if (move.toColumn < move.fromColumn) {
+							board[move.fromRow - 1][move.fromColumn - 1] = null;
+						}
+					}	
 					
 					player = player.next();
 					System.out.println(player);
