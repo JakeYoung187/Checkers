@@ -14,9 +14,6 @@ public class CheckerModelTest {
 	
 	/** Test Checker Model. */
 	protected ICheckerModel model;
-
-	/** Red Piece Total. */
-	
 	
 	/****************************
 	 * Create Test Checker model.
