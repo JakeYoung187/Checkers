@@ -5,12 +5,6 @@ package edu.gvsu.cis350.checkers;
  ******************************************************************************/
 public interface ICheckerModel {
 	
-	/*********************************************
-	 * isComplete checks if the turn is completed.
-	 * @return true if complete, false if not.
-	 *********************************************/
-	boolean isComplete();
-	
 	//boolean isValidMove(Move move);
 	
 	/*******************************************
@@ -21,10 +15,9 @@ public interface ICheckerModel {
 	
 	/************************************
 	 * gameOver checks if game ended.
-	 * @param winner player
 	 * @return true if win, false if not
 	 ************************************/
-	boolean gameOver(Player winner);
+	boolean gameOver();
 	
 	
 	/***************************************

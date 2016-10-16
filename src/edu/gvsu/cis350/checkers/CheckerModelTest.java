@@ -30,7 +30,8 @@ public class CheckerModelTest {
 	@Test
 	public final void isNotCompleteTest() throws Exception {
 		//TODO: FINISH GAME OVER METHOD
-	//	assertFalse("Testing notIsComplete", model.gameOver());
+		
+		assertFalse("Testing notIsComplete", model.gameOver());
 
 	}
 	
@@ -47,6 +48,23 @@ public class CheckerModelTest {
 
 		assertEquals(model.pieceAt(4, 2), piece);
 
+	}
+	
+	/*****************************************
+	 * Checks if piece was moved and captured. 
+	 * @throws Exception 
+	 *****************************************/
+	@Test
+	public final void captureWorks() throws Exception {
+
+		IGamePiece piece = model.pieceAt(5, 3);
+		IGamePiece other = model.pieceAt(2, 6);
+		model.move(new Move(5, 3, 4, 4));
+		model.move(new Move(2, 6, 3, 5));
+		model.move(new Move(4, 4, 2, 6));
+
+		assertEquals(model.pieceAt(2, 6), piece);
+		assertEquals(null, model.pieceAt(3, 5));
 	}
 	
 	
