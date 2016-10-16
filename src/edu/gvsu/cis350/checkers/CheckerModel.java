@@ -219,4 +219,36 @@ public class CheckerModel implements ICheckerModel {
 	public final void setCurrentPiece(final IGamePiece p) {
 		this.currentPiece = p;
 	}
+	
+	/************************************************************
+	 * getRedTotal returns the number of red pieces on the board.
+	 * @return red pieces
+	 ************************************************************/
+	public final int getRedTotal() {
+		return redTotal;
+	}
+	
+	/**************************************************************
+	 * getGrayTotal returns the number of gray pieces on the board.
+	 * @return red pieces
+	 **************************************************************/
+	public final int getGrayTotal() {
+		return grayTotal;
+	}
+	
+	/************************************************************
+	 * getRedTotal sets the number of red pieces on the board.
+	 * @param total red pieces
+	 ************************************************************/
+	public final void setRedTotal(final int total) {
+		redTotal = total;
+	}
+	
+	/**************************************************************
+	 * getGrayTotal sets the number of gray pieces on the board.
+	 * @param total gray pieces 
+	 **************************************************************/
+	public final void setGrayTotal(final int total) {
+		grayTotal = total;
+	}
 }

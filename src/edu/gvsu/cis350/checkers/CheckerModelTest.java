@@ -35,6 +35,32 @@ public class CheckerModelTest {
 		assertFalse("Testing notIsComplete", model.gameOver());
 	}
 	
+	/**************************************************** 
+	 * Test if game is over.  Move to capture last piece.
+	 * @throws Exception 
+	 ****************************************************/
+	@Test
+	public final void yesGameOver() throws Exception {
+		
+		IGamePiece piece = model.pieceAt(5, 3);
+		IGamePiece other = model.pieceAt(2, 6);
+		
+		//Manually set totals to simulate end of game
+		model.setRedTotal(2);
+		model.setGrayTotal(1);
+		
+		model.move(new Move(5, 3, 4, 4));
+		model.move(new Move(2, 6, 3, 5));
+		model.move(new Move(4, 4, 2, 6));
+		
+		int grays = model.getGrayTotal();
+
+		assertEquals(model.pieceAt(2, 6), piece);
+		assertEquals(null, model.pieceAt(3, 5));
+		assertEquals(0, grays);
+		assertTrue(model.gameOver());
+	}
+	
 	
 	/****************************
 	 * Checks if piece was moved. 
@@ -47,7 +73,8 @@ public class CheckerModelTest {
 		model.move(new Move(5, 3, 4, 2));
 
 		assertEquals(model.pieceAt(4, 2), piece);
-
+		assertEquals(12, model.getRedTotal());
+		assertEquals(12, model.getGrayTotal());
 	}
 	
 	/*****************************************
@@ -62,9 +89,12 @@ public class CheckerModelTest {
 		model.move(new Move(5, 3, 4, 4));
 		model.move(new Move(2, 6, 3, 5));
 		model.move(new Move(4, 4, 2, 6));
+		
+		int grays = model.getGrayTotal();
 
 		assertEquals(model.pieceAt(2, 6), piece);
 		assertEquals(null, model.pieceAt(3, 5));
+		assertEquals(12 - 1, grays);
 	}
 	
 	

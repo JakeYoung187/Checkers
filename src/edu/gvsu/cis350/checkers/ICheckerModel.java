@@ -37,4 +37,28 @@ public interface ICheckerModel {
 	 ***********************************************************/
 	Player getCurrentPlayer();
 	
+	/************************************************************
+	 * getRedTotal returns the number of red pieces on the board.
+	 * @return red pieces
+	 ************************************************************/
+	int getRedTotal();
+	
+	/**************************************************************
+	 * getGrayTotal returns the number of gray pieces on the board.
+	 * @return red pieces
+	 **************************************************************/
+	int getGrayTotal();
+	
+	/************************************************************
+	 * getRedTotal sets the number of red pieces on the board.
+	 * @param total red pieces
+	 ************************************************************/
+	void setRedTotal(final int total);
+	
+	/**************************************************************
+	 * getGrayTotal sets the number of gray pieces on the board.
+	 * @param total gray pieces 
+	 **************************************************************/
+	void setGrayTotal(final int total);
+	
 }
