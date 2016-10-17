@@ -251,4 +251,20 @@ public class CheckerModel implements ICheckerModel {
 	public final void setGrayTotal(final int total) {
 		grayTotal = total;
 	}
+	
+	// FIXME: EVERYTHING BELOW NEEDS TO BE JAVADOC'D
+	public void removePiece(int row, int column) {
+		 board[row][column] = null;
+	}
+		 	
+	public void createPiece(int row, int column, boolean isKing, boolean isRed) {
+		if(isKing == true && isRed == true)
+			board[row][column] = new Kings(Player.RED);
+		else if(isKing == true && isRed == false)
+			board[row][column] = new Kings(Player.GRAY);
+		else if(isKing == false && isRed == true)
+			board[row][column] = new NormalPiece(Player.RED); 
+		else
+			board[row][column] = new NormalPiece(Player.GRAY);
+	}
 }

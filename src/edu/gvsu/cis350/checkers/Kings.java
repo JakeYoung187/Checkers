@@ -7,6 +7,15 @@ package edu.gvsu.cis350.checkers;
  * @version 1.0 
  ******************************************************/
 public class Kings extends GamePiece {
+	public Player owner;
+	
+	protected Kings(Player player) {
+		this.owner = player;
+	}
+	
+	public Player player() {
+		return owner;
+	}
 
 	@Override
 	public final String type() {
