@@ -1,21 +1,19 @@
 package edu.gvsu.cis350.checkers;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-
 /************************************************************
- * JUnit testing for the NormalPiece Class.
+ * JUnit testing for the Kings Class.
  * 
  * @author Nate Benson, Jake Young, Kaye Suarez
  * @version 1.0
  ************************************************************/
-public class NormalPieceTest extends GamePieceTest {
+public class KingsTest extends GamePieceTest {
 
 	@Override
 	protected final IGamePiece make(final Player p) {
-		return new NormalPiece(p);
+		return new Kings(p);
 	}
 
 	@Override
@@ -29,15 +27,14 @@ public class NormalPieceTest extends GamePieceTest {
 		}
 	}
 	
-	
 	/******************************
-	 * Checks if piece is "Normal".
+	 * Checks if piece is "King".
 	 * @throws Exception 
 	 ******************************/
 	@Test
 	public final void typeTest() throws Exception {
 
-		assertEquals("Pawn", piece.type());
+		assertEquals("King", piece.type());
 	}
 	
 	/******************************************
@@ -89,27 +86,26 @@ public class NormalPieceTest extends GamePieceTest {
 	}
 	
 	/**********************************************
-	 * Checks invalid back right diagonal movement.
+	 * Checks valid back right diagonal movement.
 	 * @throws Exception 
 	 **********************************************/
 	@Test
-	public final void noDiagRightBack() throws Exception {
+	public final void diagRightBack() throws Exception {
 		board[4][4] = piece;
  
-		assertFalse(piece.isValidMove(new Move(4, 4, 6, 4), board));
+		assertTrue(piece.isValidMove(new Move(4, 4, 5, 5), board));
 	}
 	
 	/**********************************************
-	 * Checks invalid back right diagonal movement.
+	 * Checks valid back right diagonal movement.
 	 * @throws Exception 
 	 **********************************************/
 	@Test
-	public final void noDiagLeftBack() throws Exception {
+	public final void diagLeftBack() throws Exception {
 		board[4][4] = piece;
  
-		assertFalse(piece.isValidMove(new Move(4, 4, 5, 4), board));
+		assertTrue(piece.isValidMove(new Move(4, 4, 5, 3), board));
 	}
-	
 	
 	/*******************************************
 	 * Checks if invalid to move piece vertical.

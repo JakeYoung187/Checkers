@@ -20,6 +20,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 
 /**************************************************************
  * CheckerPanel class to create and set up board for game play.
@@ -39,7 +40,7 @@ public class CheckerPanel extends JPanel {
 	/** currentMove: holds value for the current move. */
 	public Move currentMove;
 	
-	/** JPanel next to board */
+	/** JPanel next to board. */
 	private JPanel rightSide;
 	
 	/** JLabel to show current player. */
@@ -161,8 +162,7 @@ public class CheckerPanel extends JPanel {
 						if (model.pieceAt(a, b).player() == Player.RED) {
 							board[a][b].setIcon(rPieces);
 						}
-					}
-					else if (model.pieceAt(a, b).type().equals("King")) {
+					} else if (model.pieceAt(a, b).type().equals("King")) {
 						if (model.pieceAt(a, b).player() == Player.GRAY) {
 							board[a][b].setIcon(gKings);
 						}

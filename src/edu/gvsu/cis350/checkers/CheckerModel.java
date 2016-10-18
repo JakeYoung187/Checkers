@@ -267,21 +267,27 @@ public class CheckerModel implements ICheckerModel {
 			
 		} else if (isKing == true && isRed == false) {
 			board[row][column] = new Kings(Player.GRAY);
+			
 		} else if (isKing == false && isRed == true) {
-			board[row][column] = new NormalPiece(Player.RED); 
+			board[row][column] = new NormalPiece(Player.RED);
+			
 		} else {
 			board[row][column] = new NormalPiece(Player.GRAY);
 		}
 	}
 	
-	public void kingMe() {
-		for (int a = 0; a < 8; a++) {
+	/**************************************************************
+	 * Makes normal piece a king once reaches the end of the board.
+	 **************************************************************/
+	public final void kingMe() {
+		for (int a = 0; a < BOARDSIZE; a++) {
 			if (pieceAt(0, a) != null && pieceAt(0, a).player() == Player.RED) {
 				board[0][a] = new Kings(Player.RED);
 				return;
 			}
-			if (pieceAt(7, a) != null && pieceAt(7, a).player() == Player.GRAY) {
-				board[7][a] = new Kings(Player.GRAY);
+			if (pieceAt(BOARDSIZE - 1, a) != null 
+					&& pieceAt(BOARDSIZE - 1, a).player() == Player.GRAY) {
+				board[BOARDSIZE - 1][a] = new Kings(Player.GRAY);
 				return;
 			}
 		}
