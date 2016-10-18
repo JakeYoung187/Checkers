@@ -160,7 +160,7 @@ public class NormalPieceTest extends GamePieceTest {
 	
 	/************************************************
 	 * Checks when jumping piece, only jumps 1 space.
-	 * @throws Exception 
+	 * @throws Exception  
 	 ************************************************/
 	@Test
 	public final void tooManySpacesGray() throws Exception {
