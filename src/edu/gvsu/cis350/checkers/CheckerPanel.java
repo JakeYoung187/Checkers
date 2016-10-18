@@ -30,10 +30,6 @@ import javax.swing.JFileChooser;
 
 public class CheckerPanel extends JPanel {
 	
-	//add more icons for kings, 
-	//also not sure if i actually need another class for just normal pieces
-	//seems like bad coding
-	
 	/** board: array of buttons for board tiles. */
 	private JButton[][] board;
 	
@@ -43,15 +39,29 @@ public class CheckerPanel extends JPanel {
 	/** currentMove: holds value for the current move. */
 	public Move currentMove;
 	
-//	private JButton pauseButton;
-//	private JPanel rightSide;
-	//public JMenuBar topMenu;
+	/** JPanel next to board */
+	private JPanel rightSide;
+	
+	/** JLabel to show current player. */
+	private JLabel currentPlayer;
 	
 	/** image for redPieces. */
 	private Image redPieces;
 	
 	/** image for grayPieces. */
 	private Image grayPieces;
+	
+	/** image for redKings. */
+	private Image redKings;
+	
+	/** image for grayKings. */
+	private Image grayKings;
+	
+	/** resized image redKings. */
+	private Image redKingsResized;
+	
+	/** resized image grayKings. */
+	private Image grayKingsResized;
 	
 	/** resized image redPiece. */
 	private Image redPieceResize;
@@ -64,6 +74,12 @@ public class CheckerPanel extends JPanel {
 	
 	/** gray piece icon. */
 	private ImageIcon gPieces;
+	
+	/** red king icon. */
+	private ImageIcon rKings;
+	
+	/** gray king icon. */
+	private ImageIcon gKings;
 	
 	/** holds board size. */
 	private static final int BOARDSIZE = 8;
@@ -91,20 +107,14 @@ public class CheckerPanel extends JPanel {
 		add(center, BorderLayout.CENTER);
 		board = new JButton[BOARDSIZE][BOARDSIZE];
 		
+		rightSide = new JPanel();
+		rightSide.setLayout(new GridLayout(0, 1));
+		add(rightSide, BorderLayout.EAST);
 		
-		
-//		rightSide = new JPanel();
-//		rightSide.setLayout(new GridLayout(0, 1));
-//		add(rightSide, BorderLayout.EAST);
-//		pauseButton = new JButton("Pause");
-//		pauseButton.setBackground(new Color(255, 0, 0));
-//		pauseButton.setForeground(Color.BLACK);
-//		pauseButton.setPreferredSize(new Dimension(50, 50));
-//		Font f = new Font("Dialog", Font.PLAIN, 24);
-//		pauseButton.setFont(f);
-//		pauseButton.addMouseListener(listener);
-//		rightSide.add(pauseButton);
-		//topMenu = new JMenuBar();
+		currentPlayer = new JLabel("Current Player is: \n");
+		currentPlayer.setHorizontalTextPosition(JLabel.CENTER);
+		currentPlayer.setVerticalTextPosition(JLabel.TOP);
+		rightSide.add(currentPlayer);
 		
 		for (int r = 0; r < BOARDSIZE; r++) {
 			for (int c = 0; c < BOARDSIZE; c++) {
@@ -127,6 +137,13 @@ public class CheckerPanel extends JPanel {
 		for (int a = 0; a < BOARDSIZE; a++) {
 			for (int b = 0; b < BOARDSIZE; b++) {
 				
+				if (model.getCurrentPlayer() == Player.RED) {
+					currentPlayer.setIcon(rPieces);
+				}
+				if (model.getCurrentPlayer() == Player.GRAY) {
+					currentPlayer.setIcon(gPieces);
+				}
+				
 				if (a % 2 == b % 2) {
 					board[a][b].setBackground(Color.RED);
 					
@@ -145,6 +162,14 @@ public class CheckerPanel extends JPanel {
 							board[a][b].setIcon(rPieces);
 						}
 					}
+					else if (model.pieceAt(a, b).type().equals("King")) {
+						if (model.pieceAt(a, b).player() == Player.GRAY) {
+							board[a][b].setIcon(gKings);
+						}
+						if (model.pieceAt(a, b).player() == Player.RED) {
+							board[a][b].setIcon(rKings);
+						}	
+					}
 					
 				} else {
 					board[a][b].setIcon(null);
@@ -159,25 +184,39 @@ public class CheckerPanel extends JPanel {
 	
 	private void addIcons() {
 		//load graphics
-		
 		try {
 			//load images
 			redPieces = ImageIO.read(getClass().getResource(
-									 "/Resources/beer-cap-icon-67249.png"));
-			
+				"/Resources/beer-cap-icon-67249.png"));
+					
 			grayPieces = ImageIO.read(getClass().getResource(
-									  "/Resources/ff-bottle-cap.png"));
-			
+				"/Resources/ff-bottle-cap.png"));
+					
+			redKings = ImageIO.read(getClass().getResource(
+				"/Resources/kingpieceRED.png"));
+					
+			grayKings = ImageIO.read(getClass().getResource(
+				"/Resources/kingpieceGRAY.png"));
+					
 			//resize images
 			redPieceResize = 
-					redPieces.getScaledInstance(REDSIZE, REDSIZE, REDSIZE);
-			
+				redPieces.getScaledInstance(REDSIZE, REDSIZE, REDSIZE);
+					
 			grayPieceResize = 
-					grayPieces.getScaledInstance(GRAYSIZE, GRAYSIZE, GRAYSIZE);
-			
+				grayPieces.getScaledInstance(GRAYSIZE, GRAYSIZE, GRAYSIZE);
+					
+			redKingsResized = 
+				redKings.getScaledInstance(REDSIZE, REDSIZE, REDSIZE);
+					
+			grayKingsResized = 
+				grayKings.getScaledInstance(GRAYSIZE, GRAYSIZE, GRAYSIZE);
+					
 			//set icons
 			rPieces = new ImageIcon(redPieceResize);
-			gPieces = new ImageIcon(grayPieceResize);
+				gPieces = new ImageIcon(grayPieceResize);
+				rKings = new ImageIcon(redKingsResized);
+				gKings = new ImageIcon(grayKingsResized);
+					
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -381,24 +420,10 @@ public class CheckerPanel extends JPanel {
 								currentMove.toColumn = c;
 								model.move(currentMove);
 								model.currentPiece = null;
+								model.kingMe();
 								displayBoard();
-								
-								//System.out.println(
-								//model.pieceAt(currentMove.toRow, 
-								//currentMove.toColumn).type());
 							}
 						}
-//						if(e.getButton() == MouseEvent.BUTTON3) {
-//							displayBoard();
-//							if(e.getSource() == board[a][b]) {
-//								if(model.getCurrentPiece() == null) {
-//									if(model.pieceAt(a, b) != null) {
-//										if(model.pieceAt(a, b).player()
-//												== model.currentPlayer()) {
-//											currentMove.fromRow = a;
-//											currentMove.fromColumn = b;
-//											highlight(a, b);
-//											model.currentPiece = null;
 					}
 				}
 			}
