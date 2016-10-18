@@ -3,7 +3,7 @@ package edu.gvsu.cis350.checkers;
 /******************************************************
  * King class extends GamePiece for King functionality.
  * 
- * @author Nate Benson, Kaye Suarez, Jake Young
+ * @author Nate Benson, Kaye Suarez, Jake Young 
  * @version 1.0 
  ******************************************************/
 public class Kings extends GamePiece {
