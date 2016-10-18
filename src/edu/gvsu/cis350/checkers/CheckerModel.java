@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class CheckerModel implements ICheckerModel {
 
 	/** board. */
-	private IGamePiece[][] board;
+	private IGamePiece[][] board; 
 
 	/** current piece. */
 	public IGamePiece currentPiece;

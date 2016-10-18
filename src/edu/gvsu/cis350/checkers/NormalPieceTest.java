@@ -14,7 +14,7 @@ import org.junit.Test;
 public class NormalPieceTest extends GamePieceTest {
 
 	@Override
-	protected final IGamePiece make(final Player p) {
+	protected final IGamePiece make(final Player p) { 
 		return new NormalPiece(p);
 	}
 

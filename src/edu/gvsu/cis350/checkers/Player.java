@@ -16,6 +16,6 @@ public enum Player {
 	 * @return color 
 	 *********************/
 	public Player next() {
-		return this == GRAY ? RED : GRAY;
+		return this == GRAY ? RED : GRAY; 
 	}
 }

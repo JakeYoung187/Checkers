@@ -12,7 +12,7 @@ import org.junit.Test;
 public class KingsTest extends GamePieceTest {
 
 	@Override
-	protected final IGamePiece make(final Player p) {
+	protected final IGamePiece make(final Player p) { 
 		return new Kings(p);
 	}
 

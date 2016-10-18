@@ -13,7 +13,7 @@ public interface IGamePiece {
 	 * @param p owner of piece 
 	 **************************/
 	void setPlayer(Player p);
-	
+	 
 	/****************************************** 
 	 * Returns the player that owns this piece.
 	 * @return player of piece 

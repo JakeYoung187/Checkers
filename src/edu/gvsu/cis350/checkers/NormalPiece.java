@@ -12,7 +12,7 @@ public class NormalPiece extends GamePiece {
 	public Player owner;
 
 	/** value of jumping a piece. */
-	private static final int JUMP = 2;
+	private static final int JUMP = 2; 
 
 	/*******************************
 	 * Sets owner of normal piece.

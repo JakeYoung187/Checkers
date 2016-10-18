@@ -14,7 +14,7 @@ public interface ICheckerModel {
 	 * move handles movement of pieces on board.
 	 * @param move given move
 	 *******************************************/
-	void move(Move move);
+	void move(Move move); 
 	
 	/************************************
 	 * gameOver checks if game ended.

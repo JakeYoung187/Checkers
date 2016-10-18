@@ -10,7 +10,7 @@ import javax.swing.JMenuBar;
  * @author Nate Benson, Kaye Suarez, Jake Young
  * @version 1.0 
  ************************************************/
-public class CheckerGUI { 
+public class CheckerGUI {
 	
 	/***************************************
 	 * Main for creating checker GUI.

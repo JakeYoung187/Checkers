@@ -10,7 +10,7 @@ public abstract class GamePiece implements IGamePiece {
 
 	/** owner of piece. */
 	private Player owner;
-	
+	 
 	/*********************************************
 	 * Set the owner of the piece as given player.
 	 * @param player owner of piece.
