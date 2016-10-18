@@ -42,8 +42,7 @@ public class CheckerModelTest {
 	@Test
 	public final void yesGameOver() throws Exception {
 		
-		IGamePiece piece = model.pieceAt(5, 3);
-		IGamePiece other = model.pieceAt(2, 6); 
+		IGamePiece piece = model.pieceAt(5, 3); 
 		
 		//Manually set totals to simulate end of game
 		model.setRedTotal(2);
@@ -85,7 +84,6 @@ public class CheckerModelTest {
 	public final void captureGrayWorks() throws Exception {
 
 		IGamePiece piece = model.pieceAt(5, 3);
-		IGamePiece other = model.pieceAt(2, 6);
 		model.move(new Move(5, 3, 4, 4));
 		model.move(new Move(2, 6, 3, 5));
 		model.move(new Move(4, 4, 2, 6));
@@ -105,7 +103,6 @@ public class CheckerModelTest {
 	public final void captureGrayWorks2() throws Exception {
 
 		IGamePiece piece = model.pieceAt(5, 3);
-		IGamePiece other = model.pieceAt(2, 0);
 		model.move(new Move(5, 3, 4, 2));
 		model.move(new Move(2, 0, 3, 1));
 		model.move(new Move(4, 2, 2, 0));
@@ -125,7 +122,6 @@ public class CheckerModelTest {
 	@Test
 	public final void captureRedWorks() throws Exception {
 
-		IGamePiece piece = model.pieceAt(5, 3);
 		IGamePiece other = model.pieceAt(2, 6);
 		
 		model.move(new Move(5, 5, 4, 6));
@@ -147,7 +143,6 @@ public class CheckerModelTest {
 	@Test
 	public final void captureRedWorks2() throws Exception {
 
-		IGamePiece piece = model.pieceAt(5, 3);
 		IGamePiece other = model.pieceAt(2, 0);
 		
 		model.move(new Move(5, 5, 4, 6));

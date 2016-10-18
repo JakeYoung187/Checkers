@@ -21,9 +21,6 @@ public abstract class GamePieceTest {
 	
 	/** Single GamePiece. */
 	protected IGamePiece piece;
-	
-	/** Second GamePiece. */
-	protected IGamePiece piece2;
 
 	/***********************************
 	 * Setup empty array of game pieces.

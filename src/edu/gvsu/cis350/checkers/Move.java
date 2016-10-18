@@ -10,7 +10,7 @@ package edu.gvsu.cis350.checkers;
 public class Move {
 	
 	/** start and end position of piece. */
-	public static int fromRow, fromColumn, toRow, toColumn;
+	public int fromRow, fromColumn, toRow, toColumn;
 
 	/*********************************************************
 	 * Move constructs move based from start and end position.
