@@ -83,12 +83,7 @@ public class CheckerModel implements ICheckerModel {
 	 * @return true if valid, false if not
 	 ***********************************************/
 	public final boolean isValidMove(final Move move) {
-		if (pieceAt(move.fromRow, move.fromColumn).isValidMove(move, board)) {
-			return true;
-
-		} else {
-			return false;
-		}
+		return pieceAt(move.fromRow, move.fromColumn).isValidMove(move, board);
 	}
 
 	/**************************************
@@ -165,11 +160,7 @@ public class CheckerModel implements ICheckerModel {
 						"That is not a valid move. Please try another.");
 				return;
 			}
-			//save array of pieces to save board, 
-			//timer, load, save, speed mode, board change size,
-			//maybe main menu, maybe profiles
 		}
-		//		player = player.next();
 		System.out.println(player);
 	}
 
@@ -282,4 +273,17 @@ public class CheckerModel implements ICheckerModel {
 			board[row][column] = new NormalPiece(Player.GRAY);
 		}
 	}
+	
+	public void kingMe() {
+		for (int a = 0; a < 8; a++) {
+			if (pieceAt(0, a) != null && pieceAt(0, a).player() == Player.RED) {
+				board[0][a] = new Kings(Player.RED);
+				return;
+			}
+			if (pieceAt(7, a) != null && pieceAt(7, a).player() == Player.GRAY) {
+				board[7][a] = new Kings(Player.GRAY);
+				return;
+			}
+		}
+	}	
 }
