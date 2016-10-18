@@ -154,7 +154,8 @@ public class CheckerModel implements ICheckerModel {
 					}
 					
 					player = player.next();
-					System.out.println("REDS: " + redTotal + "\nGRAYS: " + grayTotal);
+					System.out.println("REDS: " + redTotal
+										+ "\nGRAYS: " + grayTotal);
 					System.out.println(player);
 
 				}
@@ -252,19 +253,33 @@ public class CheckerModel implements ICheckerModel {
 		grayTotal = total;
 	}
 	
-	// FIXME: EVERYTHING BELOW NEEDS TO BE JAVADOC'D
-	public void removePiece(int row, int column) {
+	/********************************
+	 * Removes piece from the board.
+	 * @param row current row
+	 * @param column current column
+	 ********************************/
+	public final void removePiece(final int row, final int column) {
 		 board[row][column] = null;
 	}
 		 	
-	public void createPiece(int row, int column, boolean isKing, boolean isRed) {
-		if(isKing == true && isRed == true)
+	/**************************************************
+	 * Creates a King at given location.
+	 * @param row current row
+	 * @param column current column
+	 * @param isKing true if king, otherwise false
+	 * @param isRed true if red player, otherwise gray
+	 **************************************************/
+	public final void createPiece(final int row, final int column, 
+								final boolean isKing, final boolean isRed) {
+		if (isKing == true && isRed == true) {
 			board[row][column] = new Kings(Player.RED);
-		else if(isKing == true && isRed == false)
+			
+		} else if (isKing == true && isRed == false) {
 			board[row][column] = new Kings(Player.GRAY);
-		else if(isKing == false && isRed == true)
+		} else if (isKing == false && isRed == true) {
 			board[row][column] = new NormalPiece(Player.RED); 
-		else
+		} else {
 			board[row][column] = new NormalPiece(Player.GRAY);
+		}
 	}
 }

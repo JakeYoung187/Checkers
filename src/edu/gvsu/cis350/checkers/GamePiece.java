@@ -19,12 +19,18 @@ public abstract class GamePiece implements IGamePiece {
 		this.owner = player;
 	}
 	
+	/***************************
+	 * Returns player of piece.
+	 * @return player of piece
+	 **************************/
 	public Player player() {
 		return owner;
 	}
 
-	//Determines whether it is a king
-	// or a normal piece
+	/***************************
+	 * Returns type of piece.
+	 * @return type of piece
+	 ***************************/
 	public abstract String type();
 
 	//public abstract boolean isValidMove(GamePiece game);

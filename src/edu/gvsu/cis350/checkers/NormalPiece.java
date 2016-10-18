@@ -62,7 +62,7 @@ public class NormalPiece extends GamePiece {
 										[move.fromColumn - 1] != null) {
 
 							if (board[move.fromRow + 1][move.fromColumn
-							                            + (-1)].player() != player()) {
+							                     + (-1)].player() != player()) {
 								return true;
 							}
 						}

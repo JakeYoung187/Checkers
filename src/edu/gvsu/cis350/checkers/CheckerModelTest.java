@@ -164,7 +164,7 @@ public class CheckerModelTest {
 	
 	/*********************************************************
 	 * Checks that piece doesn't move if location is occupied.
-	 * @throws Exception
+	 * @throws Exception 
 	 *********************************************************/
 	@Test
 	public final void invalidMove() throws Exception {
@@ -183,7 +183,7 @@ public class CheckerModelTest {
 	
 	/*********************************************************
 	 * Checks that piece doesn't move if location is occupied.
-	 * @throws Exception
+	 * @throws Exception 
 	 *********************************************************/
 	@Test
 	public final void invalidMove2() throws Exception {

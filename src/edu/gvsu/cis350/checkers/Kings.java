@@ -7,13 +7,23 @@ package edu.gvsu.cis350.checkers;
  * @version 1.0 
  ******************************************************/
 public class Kings extends GamePiece {
+	
+	/** Owner of the piece. */
 	public Player owner;
 	
-	protected Kings(Player player) {
+	/*******************************
+	 * Constructor for King piece.
+	 * @param player owner of piece
+	 *******************************/
+	protected Kings(final Player player) {
 		this.owner = player;
 	}
 	
-	public Player player() {
+	/********************************
+	 * Return owner of piece.
+	 * @return player owner of piece
+	 *******************************/
+	public final Player player() {
 		return owner;
 	}
 

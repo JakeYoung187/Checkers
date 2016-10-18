@@ -187,44 +187,51 @@ public class CheckerPanel extends JPanel {
 	/*****************************************************
 	 * reset clears the current game and resets game play. 
 	 *****************************************************/
-	
 	public final void reset() {
 		model = new CheckerModel();
 	}
 	
-	public void clearBoard() {
-		for(int i = 0; i < 8; i++) {
-			for(int j = 0; j < 8; j++) {
-				if(model.pieceAt(i, j) != null) {
+	/***************************
+	 * Clears the current board.
+	 ***************************/
+	public final void clearBoard() {
+		for (int i = 0; i < BOARDSIZE; i++) {
+			for (int j = 0; j < BOARDSIZE; j++) {
+				if (model.pieceAt(i, j) != null) {
 					model.removePiece(i, j);
 				}
 			}
 		}
 	}
 	
-	// FIXME: NEEDS TO BE JAVADOC'D
-	public void saveBoard(String filename) {
+	/*****************************************
+	 * Save the current board to text file.
+	 * @param filename file for saving board
+	 *****************************************/
+	public final void saveBoard(final String filename) {
 		try {
 			PrintWriter out = new PrintWriter(filename + ".txt");
 		 
-			for(int i = 0; i < 8; i++) {
-				for(int j = 0; j < 8; j++){
-					if(model.pieceAt(i, j) == null) {
+			for (int i = 0; i < BOARDSIZE; i++) {
+				for (int j = 0; j < BOARDSIZE; j++) {
+					if (model.pieceAt(i, j) == null) {
 						out.print("X,");
-					}
-					else if(model.pieceAt(i, j).type().equals("Pawn")) {
-						if(model.pieceAt(i, j).player() == Player.GRAY) {
+						
+					} else if (model.pieceAt(i, j).type().equals("Pawn")) {
+						
+						if (model.pieceAt(i, j).player() == Player.GRAY) {
 							out.print("PG,");
-						}
-						else
+						} else {
 							out.print("PR,");
-					}
-					else {
-						if(model.pieceAt(i, j).player() == Player.GRAY) {
-							out.print("KG,");
 						}
-						else
+					} else {
+						
+						if (model.pieceAt(i, j).player() == Player.GRAY) {
+							out.print("KG,");
+							
+						} else {
 							out.print("KR,");
+						}
 					}
 				}
 			}
@@ -234,8 +241,11 @@ public class CheckerPanel extends JPanel {
 		}
 	}
 
-	// FIXME: NEEDS TO BE JAVADOC'D
-	public void readBoard(String filename) {
+	/************************************
+	 * Load board from text file.
+	 * @param filename file to load from
+	 ************************************/
+	public final void readBoard(final String filename) {
 		FileInputStream fileByteStream = null;
 		Scanner inFS = null;
 	
@@ -246,22 +256,23 @@ public class CheckerPanel extends JPanel {
 			inFS.useDelimiter("[,\r\n]+");
 			
 			// Read the board to ArrayList
-			while(inFS.hasNext()) {
+			while (inFS.hasNext()) {
 				clearBoard();
 				ArrayList<String> list = new ArrayList<String>();
-				for(int i = 0; i < 8; i++) { 
-					for(int j = 0; j < 8; j++){
+				for (int i = 0; i < BOARDSIZE; i++) { 
+					for (int j = 0; j < BOARDSIZE; j++) {
 						String spot = inFS.next();
-						if(spot.equals("PG")) {
+						
+						if (spot.equals("PG")) {
 							model.createPiece(i, j, false, false);
-						}
-						else if(spot.equals("PR")) {
+							
+						} else if (spot.equals("PR")) {
 							model.createPiece(i, j, false, true);
-						}
-						else if(spot.equals("KG")) {
+							
+						} else if (spot.equals("KG")) {
 							model.createPiece(i, j, true, false);
-						}
-						else if(spot.equals("KR")) {
+							
+						} else if (spot.equals("KR")) {
 							model.createPiece(i, j, true, true);
 						}
 					}
@@ -275,7 +286,10 @@ public class CheckerPanel extends JPanel {
 		}
 	}
 	
-	// FIXME: NEEDS TO BE JAVADOC'D
+	
+	/**********************
+	 * Open the text file.
+	 **********************/
 	private void openFile() {
 		String userDir = System.getProperty("user.dir");
 		JFileChooser fc = new JFileChooser(userDir);
@@ -296,7 +310,8 @@ public class CheckerPanel extends JPanel {
 		@Override
 		public void mouseClicked(final MouseEvent a) {
 			  if (a.getButton() == MouseEvent.BUTTON3) {
-				Object[] options = {"Resume", "Save", "Load", "Restart", "Quit"};
+				Object[] options = 
+								{"Resume", "Save", "Load", "Restart", "Quit"};
 				
 				int n = JOptionPane.showOptionDialog(
 						            null, "The Game is Paused.", "Checkers",
@@ -308,19 +323,20 @@ public class CheckerPanel extends JPanel {
 					displayBoard();
 					
 				} else if (n == 1) {
-					String str = JOptionPane.showInputDialog(null, "Enter file name (without .txt):");
+					String str = JOptionPane.showInputDialog(null, 
+											"Enter file name (without .txt):");
 					saveBoard(str);
 					displayBoard();
 					
 				} else if (n == 2) {
 					openFile();
 					displayBoard();
-				}
-				else if (n ==3) {
+					
+				} else if (n == 3) {
 					reset();
 					displayBoard();
-				}
-				else if (n == 4) {
+					
+				} else if (n == 4) {
 					System.exit(0);
 				}
 			}
