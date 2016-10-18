@@ -7,10 +7,14 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -249,11 +253,13 @@ public class CheckerPanel extends JPanel {
 	 *****************************************/
 	public final void saveBoard(final String filename) {
 		try {
-			PrintWriter out = new PrintWriter(filename + ".txt");
+			File file = new File(filename);
+			Writer w = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
+			PrintWriter out = new PrintWriter(w);
 		 
 			for (int i = 0; i < BOARDSIZE; i++) {
 				for (int j = 0; j < BOARDSIZE; j++) {
-					if (model.pieceAt(i, j) == null) {
+					if (model.pieceAt(i, j) == null) { 
 						out.print("X,");
 						
 					} else if (model.pieceAt(i, j).type().equals("Pawn")) {
@@ -291,13 +297,12 @@ public class CheckerPanel extends JPanel {
 		try {
 			// Input a filename and scan the file using commas as delimiter
 			fileByteStream = new FileInputStream(filename);
-			inFS = new Scanner(fileByteStream);
+			inFS = new Scanner(fileByteStream, "UTF-8");
 			inFS.useDelimiter("[,\r\n]+");
 			
 			// Read the board to ArrayList
 			while (inFS.hasNext()) {
 				clearBoard();
-				ArrayList<String> list = new ArrayList<String>();
 				for (int i = 0; i < BOARDSIZE; i++) { 
 					for (int j = 0; j < BOARDSIZE; j++) {
 						String spot = inFS.next();
@@ -363,7 +368,7 @@ public class CheckerPanel extends JPanel {
 					
 				} else if (n == 1) {
 					String str = JOptionPane.showInputDialog(null, 
-											"Enter file name (without .txt):");
+											"Enter file name:"); 
 					saveBoard(str);
 					displayBoard();
 					
