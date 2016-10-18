@@ -43,7 +43,7 @@ public class CheckerModelTest {
 	public final void yesGameOver() throws Exception {
 		
 		IGamePiece piece = model.pieceAt(5, 3);
-		IGamePiece other = model.pieceAt(2, 6);
+		IGamePiece other = model.pieceAt(2, 6); 
 		
 		//Manually set totals to simulate end of game
 		model.setRedTotal(2);

@@ -56,13 +56,10 @@ public class Kings extends GamePiece {
 				}
 				//left
 				if (move.fromColumn - move.toColumn == 2) {
-					if (move.fromColumn - move.toColumn == 2) {
-						if (board[move.fromRow + 1][move.fromColumn - 1] 
-								!= null) {
-							if (board[move.fromRow + 1][move.fromColumn - 1]
-									.player() != owner) {
-								return true;
-							}
+					if (board[move.fromRow + 1][move.fromColumn - 1] != null) {
+						if (board[move.fromRow + 1][move.fromColumn - 1]
+								.player() != owner) {
+							return true;
 						}
 					}
 				}
