@@ -20,7 +20,7 @@ public abstract class GamePieceTest {
 	protected IGamePiece[][] board;
 	
 	/** Single GamePiece. */
-	protected IGamePiece piece;
+	protected IGamePiece piece; 
 
 	/***********************************
 	 * Setup empty array of game pieces.

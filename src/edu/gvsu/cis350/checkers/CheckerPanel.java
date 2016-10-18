@@ -381,7 +381,7 @@ public class CheckerPanel extends JPanel {
 					displayBoard();
 					
 				} else if (n == 4) {
-					System.exit(0);
+					System.exit(0); 
 				}
 			}
 			for (int r = 0; r < BOARDSIZE; r++) {

@@ -29,7 +29,7 @@ public class CheckerModelTest {
 	 * @throws Exception 
 	 ****************************************************/
 	@Test
-	public final void noGameOver() throws Exception {
+	public final void noGameOver() throws Exception { 
 		model.move(new Move(5, 3, 4, 2));
 	
 		assertFalse("Testing notIsComplete", model.gameOver());
